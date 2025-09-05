@@ -1,0 +1,39 @@
+<!-- Template should not be modified -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Intelligent Blog</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+  
+
+<body>
+  <h1>Welcome to our Intelligent Blog!</h1>
+  <p>Here you'll find insightful posts and engaging discussions.</p>
+
+  <h2>Create a New Post</h2>
+  <form id="new-post-form">
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title"><br><br>
+    <label for="content">Content:</label><br>
+    <textarea id="content" name="content"></textarea><br><br>
+    <button type="submit">Create Post</button>
+  </form>
+
+  <h2>Existing Posts</h2>
+  <div id="posts-container"></div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script>
+  // If running in Lab environment, override script src
+  if (window.location.pathname.startsWith("/proxy/5000")) {
+    const script = document.createElement("script");
+    script.src = "/proxy/5000/static/script.js";
+    document.body.appendChild(script);
+  }
+  </script>
+ <!-- Absolute URL for Lab environment -->
+</body>
+
+</html>
